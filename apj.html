@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l" crossorigin="anonymous">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    nav {
+        position:fixed;
+        top: 0;
+        width: 100%;
+        height: 127px;
+        background-color: white;
+        box-sizing: border-box;
+
+        align-items: center;
+        transform: .5s;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    ul li {
+        list-style: none;
+
+    }
+
+    ul li a {
+        color: white;
+        padding: 0 20px;
+
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    section {
+        padding: 150px 100px 100px;
+        box-sizing: border-box;
+    }
+    .li{
+        margin-bottom:5px;
+    }
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+    
+    }
+    .content{
+        height:400px;
+        width:750px;
+        overflow: hidden;
+        position: relative;
+    }
+    .content .images{
+        height: 100%;
+        width:100%;
+    }
+    .images img{
+        height: 100%;
+        width:100%;
+    }
+    .btn-sliders {
+
+position: absolute;
+bottom: 20px;
+left:50%;
+display:flex;
+transform: translate(-50%);
+    }
+
+    .btn-sliders span{
+        height: 15px;
+        width:50px;
+        border:2px solid white;
+        margin: 0 3px;
+        cursor: pointer;
+    }
+
+    
+    .content .slide{
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        width:50px;
+        height: 45px;
+        
+        cursor: pointer;
+    }
+
+    .content .slide:hover{
+        background-color: rgba(255,255,255,0.2);
+    }
+    .slide span{
+        font-size: 35px;
+        color:white;
+        border:rgba(255,255,255,0.1);
+        line-height: 41px;
+    }
+    .content  .right{
+        right: 0;
+    }
+
+</style>
+
+<body onload="bodyload()">
+   
+    <nav id="navbar">
+        <div style="display:flex;flex-direction:row;justify-content: space-around;">
+            <div>
+                <p>Hi There!<br></p>
+                <p style="background-color:rgb(233, 19, 19);border-radius: 5px 5px 5px 5px;font-size: 16px;"><button
+                        style="border:0;font-weight: bolder;font-style:italic;color:white;border-radius: 12.5%;background-color: rgb(233, 19, 19);">Login</button><span
+                        class="bi bi-person-fill"></span><button
+                        style="border:0;font-weight: bolder;font-style: italic; color:white;background:rgb(233, 19, 19);border-radius: 12.5%;">Register</button>
+                </p>
+            </div>
+            <div>
+                <p style="color:rgb(244, 176, 38);text-align: center;font-weight: bold; "><span
+                        style="font-family:'Courier New';font-size: 25px;" class="bi bi-flower3">My</span> <br><span
+                        style="font-family:Arial">POOJA BOX </span><br><span style="font-family:sans-serif"><i>The art
+                            of Gifting</i></span></p>
+
+            </div>
+            <div style="margin-top:30px;">
+                <button
+                    style="color:black;background-color: white;margin-right: 15px;border-radius: 12.5%;border:0;font-size: 18px;"
+                    class="bi bi-search">Search</button><button
+                    style="color:black;background-color: white;border: 12.5%;border:0;font-size: 18px;"
+                    class="bi bi-cart">Cart <span
+                        style="background-color:darkorange;border-radius: 50%;color:white;">&nbsp;0&nbsp;</span></button>
+            </div>
+        </div>
+        <div style="top:0;background-color:rgb(243, 37, 75);display:flex;justify-content: space-around ;">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#service">service</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </div>
+        
+    </nav><section>
+        
+        <div class="container1">
+            <img name="slide" width="100%" height="500">
+            <script>
+                   var i=0;// start point
+            var images=[];
+            var times=4000;
+            //Images List
+            images[0]='https://th.bing.com/th/id/R.db9c80b17870eca3fc353c1f73f51187?rik=DoEw8rsdIWGYcA&riu=http%3a%2f%2fblog.couponalbum.com%2fimages%2f2013%2f04%2fice-diamond-jewelry-coupon.jpeg&ehk=V%2btkZkOl%2bI1gVOHuauVh14HgysN5Ba%2bf%2boGK0ckTeVY%3d&risl=&pid=ImgRaw&r=0';
+            images[1]='https://www.irelandbattery.com/Images/banner3.png';
+            images[2]='https://i.pinimg.com/originals/c4/06/44/c406445f1a41c67dfe316b2180197ba2.jpg';
+            images[3]='https://i.pinimg.com/736x/d4/ac/7f/d4ac7fde044291cbc4b84bd9a12dc86a.jpg';
+            images[4]='https://smartwatchbfdeals.net/wp-content/uploads/2020/10/nikon-d750-camera-12264-featured.png';
+            images[5]='https://images-eu.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Budget_Buy/pc.jpg'; //change Image
+            images[6]='https://mb.com.ph/wp-content/uploads/2020/10/1010_Deals_PR_MAIN.jpg'; 
+            function changeImg(){
+                document.slide.src=images[i];
+
+                if(i < images.length -1){
+                    i++;
+                }else{
+                    i = 0;
+                }
+                setTimeout("changeImg()",times)
+            }
+            
+            </script>    
+         </div>
+        <div>
+            <h3>Welcome to MyPooja member</h3>
+        </div>
+        <main>
+            <h2> <span class="bi bi-cart2" style="color:black"></span>Online Shopping </h2>
+            <div class="row">
+              <div class="col-2">
+                <label class="form-label">Select Category</label>
+                <div>
+                    <select onchange="CategoryChanged()"  id="lstCategories" class="form-select">
+                                
+                    </select>
+                </div>
+              </div>
+              <div class="col-10;" style="position:relative;padding:30px;">
+                <div id="productsContainer" class="d-flex flex-wrap overflow-auto" style="height: 400px;">
+
+                </div>
+              </div>
+            </div>
+            <div class="modal" id="details">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 id="productTitle"></h4>
+                            
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                           
+                        </div>
+                        <div class="modal-body">
+                            <p id="productDescription"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-bs-dismiss="modal" class="btn btn-primary">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div style="display: flex;justify-content:center;padding:20px">
+            <h2><u><i>Perfoume section</i></u></h2>
+            <img src="https://cdn.shopify.com/s/files/1/2090/3151/files/desktop-banner.jpg?v=1648120296" width="90%" height="400" style="border-radius:10%">
+        </div>
+        <div style="display: flex;justify-content:center">
+            <h2><i><u>Shopee<br>Brand</u></i></h2>
+            <img src="https://mb.com.ph/wp-content/uploads/2020/10/1010_Deals_PR_MAIN.jpg" width="90%" height="400" style="border-radius:10%;padding: 20px;">
+        </div>
+        <div style="display: flex;justify-content:center;padding: 20px;">
+            <h2><i><u>Lavender<br>
+            Series</u></i></h2>
+            <img src="https://www.melaleucajournal.com/wp-content/uploads/2017/05/lavender.png" width="90%" height="400" style="border-radius:10%">
+        </div>
+        </main>
+        </section>
+        <div style="display:flex;justify-content:space-around">
+            <div>
+                <h1 class="bi bi-truck"></h1>
+                <h5><u>Speed Delivery</u></h5>
+                <p>We Ensure express<br>
+                Shipping & fast<br>
+            delivery.</p>
+            </div>
+            <div>
+                <h1 class="bi bi-cash-coin"></h1>
+                <h5><u>Cash on Delivery</u></h5>
+                <p>We Ensure express<br>
+                Shipping & fast<br>
+            delivery.</p>
+            </div>
+            <div>
+                <h1 class="bi bi-box-seam"></h1>
+                <h5><u>Easy to Return</u></h5>
+                <p>Hassle-free <br>returns/exchange<br> within 5 days of <br>delivery.</p>
+            </div>
+        </div>
+        
+    <footer style="background-color:black;color:white;text-align: center; ">
+        <div style="display:flex;flex-direction:row;justify-content: space-around;padding: 15px;">
+            <div >
+                <p style="color:white;text-align: center;font-weight: bold; "><span
+                        style="font-family:'Courier New';font-size: 25px;" class="bi bi-flower3">My</span> <br><span
+                        style="font-family:Arial">POOJA BOX </span><br><span style="font-family:sans-serif"><i>The art
+                            of Gifting</i></span></p>
+                <p style="padding-top:15px"><span class="bi bi-facebook">&nbsp;&nbsp;</span>&nbsp;<span class="bi bi-instagram">&nbsp;&nbsp;</span>&nbsp;<span
+                        class="bi bi-twitter">&nbsp;&nbsp;</span>&nbsp;<span class="bi bi-google">+</span></p>
+            </div>
+            <div style="border-left:1px dotted white;padding-left: 7px;">
+                <h3>CUSTOMER CARE</h3>
+                <p>Phone:+91 9876432345 | +918877665544</p>
+                <p>Email:mypooja@123.com</p>
+            </div>
+            <div style="border-left:1px dotted white;padding-left: 7px;">
+                <h2>ABOUT MY POOJA BOX</h2>
+                <p>Home</p>
+                <p>About</p>
+                <p>Servic</p>
+                <p>Contact</p>
+            </div>
+            <div style="border-left:1px dotted white;padding-left: 7px;">
+                <h2>INFORMATION</h2>
+                <ol>
+                    <li class="li">Returns and Refunds</li>
+                    <li class="li">Terms & Conditions</li>
+                    <li class="li">Holiday List</li>
+                    <li class="li">Track order</li>
+                </ol>
+            </div>
+        </div>
+        <hr>
+        <div style="display:flex;flex-direction:row;justify-content:space-around;">
+            <div style="margin-top:12px">
+                <p>&COPY;2022.All rights Reserved. &nbsp;&nbsp;&nbsp;<select
+                        style="background-color:black;border:1px solid white; color:white">
+                        <option  selected style="color:white">AFRICA</option>
+                        <option style="color:white">INDIA</option>
+                        <option style="color:white">ASIA</option>
+                        <option style="color:white">EUROPE</option>
+                    </select></p>
+            </div>
+            <div>
+                <p>EXPERIENCE MY POOJA BOX APP ON MOBILE<button
+                    style="border-radius:10px 1px 10px 1px; width:180px;height:35px;font-size: 16px;margin-bottom: 10px;font-family:Arial ;font-weight: bold;background-color: white; margin-left: 12px;"><img
+                        src="https://feedride.com/wp-content/uploads/2020/05/Google-Play.png" width="52px"
+                        height="29px">Google Play</button></p>
+                
+            </div>
+        </div>
+        <p style="text-align:center;background-color:rgb(243, 37, 75);width:100%">2021-22. Best site run All browser</p>
+    </footer>
+</body>
+
+<script>
+  function GetCategories(){
+                fetch("http://fakestoreapi.com/products/categories")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    data.unshift("ALL");
+                    for(var item of data)
+                    {
+                        var option = document.createElement("option");
+                        option.text = item.toUpperCase();
+                        option.value = item;
+                        document.getElementById("lstCategories").appendChild(option);
+                    }
+                })
+            }
+
+            function GetProducts(url){
+                document.getElementById("productsContainer").innerHTML="";
+                fetch(url)
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    for(var item of data){
+                        var card = document.createElement("div");
+                        card.className = "card m-2";
+                        card.innerHTML = `
+                          <img src=${item.image} height="200px" class="card-img-top">
+                          <div class="card-header" style="height:150px">
+                            <p>${item.title}</p>
+                          </div>
+                          <div class="card-body">
+                            <p>&#8377;${item.price}</p>
+                            <p>
+                               
+                            </p>
+                          </div>
+                          <div class="card-footer">
+                             <button class="btn btn-danger w-100"> <span class="bi bi-cart4"></span> Add to Cart </button>
+                          </div>
+                        `;
+                        card.style.width = "200px";
+                        document.getElementById("productsContainer").appendChild(card);
+                    }
+                })
+            }
+
+            function bodyload(){
+               GetCategories();
+               changeImg();
+               GetProducts("http://fakestoreapi.com/products");
+            }
+            function CategoryChanged(){
+                var categoryName = document.getElementById("lstCategories").value;
+                if(categoryName=="ALL") {
+                    GetProducts("http://fakestoreapi.com/products");
+                } else {
+                    GetProducts(`http://fakestoreapi.com/products/category/${categoryName}`);
+                }
+            }
+            function MoreClick(id){
+                fetch(`http://fakestoreapi.com/products/${id}`)
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    document.getElementById("productTitle").innerHTML = data.title;
+                    document.getElementById("productDescription").innerHTML = data.description;
+                })
+            }
+
+    var lastScrollTop = 0;
+    navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", function () {
+        var scrollTop = window.pageXOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            navbar.style.top = "-128px";
+        } else {
+            navbar.style.top = "0";
+        }
+        lastScrollTop = scrollTop;
+    })
+
+    
+  
+    // var i=0;// start point
+    //         var images=[];
+    //         var times=4000;
+    //         //Images List
+    //         images[0]='fitness club/images/image1.gif';
+    //         images[1]='fitness club/images/image5.gif';
+    //         images[2]='fitness club/images/image3.gif';
+    //         images[3]='fitness club/images/image4.gif';
+    //         images[4]='fitness club/images/image6.gif';
+    //         //change Image
+    //         function changeImg(){
+    //             document.slide.src=images[i];
+
+    //             if(i < images.length -1){
+    //                 i++;
+    //             }else{
+    //                 i = 0;
+    //             }
+    //             setTimeout("changeImg()",times)
+    //         }
+    //         window.onload=changeImg;
+    
+</script>
+
+</html>
